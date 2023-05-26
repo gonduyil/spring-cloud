@@ -1,10 +1,15 @@
 package org.gonduyil.consumer.infrastructure.feign;
 
-import org.gonduyil.consumer.provider.service.UserServiceFeign;
+import org.gonduyil.provider.client.service.UserServiceFeign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 
 @Service
-@FeignClient(url = "localhost:8080")
+@FeignClient(
+        name = "provider",
+        url = "localhost:8080",
+       // fallback = UserServiceFeignFallback.class,
+        fallbackFactory = UserServiceFeignFallbackFactory.class
+)
 public interface UserDetailFeignService extends UserServiceFeign {
 }

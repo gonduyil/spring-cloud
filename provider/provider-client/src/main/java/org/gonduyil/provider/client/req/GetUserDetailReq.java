@@ -1,4 +1,4 @@
-package org.gonduyil.consumer.provider;
+package org.gonduyil.provider.client.req;
 
 import lombok.*;
 
